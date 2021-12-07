@@ -26,11 +26,12 @@ data_frame.drop(columns=['Unnamed: 2','Unnamed: 3','Unnamed: 4'],inplace=True)
 
 data_frame.rename(columns={'v1':'target','v2':'text'},inplace=True)
 
+#using encoder to change ham value to 0 and spam value to 1(assigned automatically)
 data_frame['target'] = encoder.fit_transform(data_frame['target'])  # spam -1 and ham 0
 
 # data_frame.isnull().sum()
 
-# check for duplicate values and removes them
+# check for duplicate values and removes them(except the first duplicate)
 # data_frame.duplicated().sum()
 data_frame = data_frame.drop_duplicates(keep='first')
 
