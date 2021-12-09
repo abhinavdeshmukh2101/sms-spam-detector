@@ -47,11 +47,8 @@ def home():
 #To use the predict button in our web-app
 @app.route('/predict',methods=['POST'])
 def predict():
-    '''
-    For rendering results on HTML GUI
-    '''
+    #getting input from index.html form
     int_features = request.form.get("message")
-    # print(int_features)
 
     transformed_sms = transform_text(int_features)
     # 2. vectorize
